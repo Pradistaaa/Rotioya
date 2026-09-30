@@ -1,17 +1,1358 @@
 ---
+const waNumber = "6281316192323";
 
+const waOrder = (product = "") =>
+  `https://wa.me/${waNumber}?text=${encodeURIComponent(
+    `Halo Rotioya, saya ingin pesan ${product}. Mohon info ketersediaan ya.`
+  )}`;
+
+const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=Rotioya%2C%20Jl.%20Panjang%20Kp.%20Baru%2C%20Jakarta%20Barat";
+
+const menu = [
+  {
+    name: "Roti Cokelat",
+    desc: "Roti lembut dengan isian cokelat manis.",
+    price: "Rp8.000",
+    tag: "Favorit",
+  },
+  {
+    name: "Roti Keju",
+    desc: "Roti lembut dengan isian keju gurih.",
+    price: "Rp9.000",
+    tag: "Best Seller",
+  },
+  {
+    name: "Roti Cokelat Keju",
+    desc: "Perpaduan cokelat dan keju yang creamy.",
+    price: "Rp10.000",
+    tag: "Favorit",
+  },
+  {
+    name: "Roti Sosis",
+    desc: "Roti gurih dengan sosis pilihan.",
+    price: "Rp11.000",
+    tag: "Gurih",
+  },
+  {
+    name: "Roti Abon",
+    desc: "Roti lembut dengan topping abon gurih.",
+    price: "Rp10.000",
+    tag: "Gurih",
+  },
+  {
+    name: "Roti Pisang Cokelat",
+    desc: "Pisang, cokelat dan roti lembut dalam satu gigitan.",
+    price: "Rp10.000",
+    tag: "Manis",
+  },
+  {
+    name: "Donat Cokelat",
+    desc: "Donat empuk dengan topping cokelat.",
+    price: "Rp7.000",
+    tag: "Favorit",
+  },
+  {
+    name: "Donat Keju",
+    desc: "Donat lembut dengan taburan keju.",
+    price: "Rp8.000",
+    tag: "Favorit",
+  },
+  {
+    name: "Croissant Butter",
+    desc: "Croissant berlapis yang renyah di luar.",
+    price: "Rp14.000",
+    tag: "Premium",
+  },
+  {
+    name: "Pastry Cokelat",
+    desc: "Pastry renyah dengan isian cokelat.",
+    price: "Rp12.000",
+    tag: "Premium",
+  },
+  {
+    name: "Kopi Susu Gula Aren",
+    desc: "Kopi susu creamy dengan gula aren.",
+    price: "Rp12.000",
+    tag: "Minuman",
+  },
+  {
+    name: "Cokelat Ice",
+    desc: "Minuman cokelat dingin yang creamy.",
+    price: "Rp10.000",
+    tag: "Minuman",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Rotioya - Bakery pilihan di Jakarta Barat. Nikmati roti fresh, pastry, donat dan minuman dengan harga bersahabat."
+    />
+
+    <title>Rotioya | Bakery Jakarta Barat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-inner">
+        <a href="#" class="brand">
+          <div class="brand-mark">R</div>
+          <div>
+            <strong>Rotioya</strong>
+            <small>Fresh Bakery</small>
+          </div>
+        </a>
+
+        <nav>
+          <a href="#tentang">Tentang</a>
+          <a href="#menu">Menu</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#lokasi">Lokasi</a>
+        </nav>
+
+        <a href={waOrder()} class="nav-button" target="_blank">
+          Pesan Sekarang
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="eyebrow">
+          <span></span>
+          BAKERY & FRESH BREAD
+        </div>
+
+        <h1>
+          Roti hangat,<br />
+          <em>mood </em> yang lebih baik.
+        </h1>
+
+        <p>
+          Temukan roti, pastry, donat, dan minuman favoritmu di Rotioya.
+          Dibuat untuk menemani pagi, sore, hingga waktu santaimu.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#menu" class="button primary">
+            Lihat Menu
+            <span>→</span>
+          </a>
+
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button secondary"
+          >
+            Lihat Lokasi
+          </a>
+        </div>
+
+        <div class="hero-rating">
+          <div class="stars">★★★★★</div>
+          <strong>4.8</strong>
+          <span>• 25+ ulasan</span>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span>SCROLL TO EXPLORE</span>
+        <i></i>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="tentang">
+      <div class="section-label">01 — TENTANG ROTIOYA</div>
+
+      <div class="about-grid">
+        <div>
+          <h2>
+            Sederhana,<br />
+            <span>lezat setiap hari.</span>
+          </h2>
+        </div>
+
+        <div class="about-text">
+          <p>
+            Rotioya hadir untuk kamu yang suka menikmati roti fresh dengan
+            rasa yang familiar dan harga yang tetap bersahabat.
+          </p>
+
+          <p>
+            Dari roti manis, pilihan gurih, pastry hingga minuman,
+            semuanya cocok untuk sarapan, camilan atau teman ngopi.
+          </p>
+
+          <div class="stats">
+            <div>
+              <strong>4.8</strong>
+              <span>Rating</span>
+            </div>
+            <div>
+              <strong>25+</strong>
+              <span>Ulasan</span>
+            </div>
+            <div>
+              <strong>08.00</strong>
+              <span>Mulai buka</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section section" id="menu">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">02 — MENU ROTIOYA</div>
+          <h2>Favorit untuk<br /><span>setiap selera.</span></h2>
+        </div>
+
+        <p>
+          Pilihan menu di bawah merupakan daftar harga perkiraan untuk
+          kebutuhan preview website. Harga aktual dapat berubah.
+        </p>
+      </div>
+
+      <div class="menu-grid">
+        {
+          menu.map((item, index) => (
+            <article class="menu-card">
+              <div class="menu-number">
+                {(index + 1).toString().padStart(2, "0")}
+              </div>
+
+              <div class="menu-info">
+                <span class="menu-tag">{item.tag}</span>
+                <h3>{item.name}</h3>
+                <p>{item.desc}</p>
+              </div>
+
+              <div class="menu-bottom">
+                <strong>{item.price}</strong>
+
+                <a
+                  href={waOrder(item.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Pesan ${item.name}`}
+                >
+                  +
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="menu-note">
+        <span>ⓘ</span>
+        Harga pada halaman ini adalah harga perkiraan untuk preview website.
+      </div>
+    </section>
+
+    <!-- FEATURE -->
+    <section class="feature">
+      <div class="feature-content">
+        <div class="section-label light">FRESH EVERY DAY</div>
+
+        <h2>
+          Ada aroma roti,<br />
+          ada alasan untuk mampir.
+        </h2>
+
+        <p>
+          Cocok untuk sarapan, bekal, meeting, oleh-oleh kecil,
+          atau sekadar menemani kopi sore.
+        </p>
+
+        <a href={waOrder()} target="_blank" class="button light-button">
+          Tanya & Pesan via WhatsApp →
+        </a>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="why section">
+      <div class="section-label">03 — KENAPA ROTIOYA</div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <span>01</span>
+          <h3>Fresh & Lezat</h3>
+          <p>
+            Pilihan roti dan pastry yang cocok dinikmati kapan saja.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <span>02</span>
+          <h3>Harga Bersahabat</h3>
+          <p>
+            Pilihan menu untuk kebutuhan ngemil tanpa bikin kantong berat.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <span>03</span>
+          <h3>Banyak Pilihan</h3>
+          <p>
+            Dari rasa manis, gurih, pastry hingga minuman.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <span>04</span>
+          <h3>Cocok untuk Semua</h3>
+          <p>
+            Teman sarapan, camilan keluarga maupun teman ngopi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery section" id="galeri">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">04 — GALERI</div>
+          <h2>Hangatnya roti,<br /><span>nikmatnya suasana.</span></h2>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item large">
+          <img
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=85"
+            alt="Fresh bakery"
+          />
+          <div>Freshly Baked</div>
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85"
+            alt="Croissant"
+          />
+          <div>Pastry</div>
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=85"
+            alt="Cookies and bakery"
+          />
+          <div>Sweet Treats</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location section" id="lokasi">
+      <div class="location-box">
+        <div>
+          <div class="section-label">05 — KUNJUNGI KAMI</div>
+
+          <h2>
+            Mampir ke<br />
+            <span>Rotioya.</span>
+          </h2>
+
+          <p>
+            Jl. Panjang Kp. Baru, RT.6/RW.4,
+            Sukabumi Selatan, Kebon Jeruk,
+            Jakarta Barat.
+          </p>
+
+          <div class="location-info">
+            <div>
+              <span>JAM BUKA</span>
+              <strong>08.00 — 23.00</strong>
+            </div>
+
+            <div>
+              <span>TELEPON / WHATSAPP</span>
+              <strong>0813 1619 2323</strong>
+            </div>
+          </div>
+
+          <div class="location-actions">
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button primary"
+            >
+              Buka Google Maps →
+            </a>
+
+            <a
+              href={waOrder()}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button outline"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <div class="map-icon">⌖</div>
+          <span>ROTIOYA</span>
+          <strong>Jakarta Barat</strong>
+          <small>Sukabumi Selatan • Kebon Jeruk</small>
+
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Lihat di Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="final-cta">
+      <div class="section-label light">READY TO ORDER?</div>
+
+      <h2>
+        Roti favoritmu<br />
+        <em>tinggal pesan.</em>
+      </h2>
+
+      <p>
+        Hubungi Rotioya melalui WhatsApp untuk menanyakan menu
+        dan ketersediaan hari ini.
+      </p>
+
+      <a href={waOrder()} target="_blank" class="button whatsapp">
+        <span>◉</span>
+        Pesan via WhatsApp
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="brand-mark">R</div>
+          <div>
+            <strong>Rotioya</strong>
+            <small>Fresh Bakery</small>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#tentang">Tentang</a>
+          <a href="#menu">Menu</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#lokasi">Lokasi</a>
+        </div>
+
+        <a href={waOrder()} target="_blank" class="footer-wa">
+          WhatsApp →
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Rotioya. All rights reserved.</span>
+        <span>Jakarta Barat, Indonesia</span>
+      </div>
+    </footer>
+  </body>
 </html>
+
+<style>
+  :root {
+    --cream: #f6f0e6;
+    --paper: #fffaf2;
+    --dark: #171513;
+    --brown: #6b3f25;
+    --brown2: #8d5936;
+    --gold: #c99b5c;
+    --muted: #7d756d;
+    --line: #e6ddd0;
+    --white: #fff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--dark);
+    font-family: "DM Sans", sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* NAVBAR */
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(23, 21, 19, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-inner {
+    width: min(1200px, 100%);
+    margin: auto;
+    padding: 17px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .brand,
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 39px;
+    height: 39px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    font-weight: 700;
+  }
+
+  .brand strong,
+  .footer-brand strong {
+    display: block;
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .brand small,
+  .footer-brand small {
+    display: block;
+    margin-top: 4px;
+    color: #b7aea3;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  nav a {
+    color: #ddd5ca;
+    font-size: 13px;
+    transition: .25s;
+  }
+
+  nav a:hover {
+    color: var(--gold);
+  }
+
+  .nav-button {
+    padding: 11px 17px;
+    border: 1px solid var(--gold);
+    color: white;
+    font-size: 12px;
+    border-radius: 5px;
+    transition: .25s;
+  }
+
+  .nav-button:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 760px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+      linear-gradient(90deg, rgba(20,14,10,.93), rgba(20,14,10,.62), rgba(20,14,10,.25)),
+      url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=90")
+      center/cover;
+  }
+
+  .hero-content {
+    width: min(1200px, 100%);
+    margin: auto;
+    padding: 150px 28px 100px;
+    color: white;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow,
+  .section-label {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .eyebrow span {
+    width: 35px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    max-width: 700px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(55px, 8vw, 92px);
+    line-height: .95;
+    letter-spacing: -3px;
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .hero-content > p {
+    max-width: 520px;
+    margin-top: 27px;
+    color: #ded7cf;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 34px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 47px;
+    padding: 0 21px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .25s;
+  }
+
+  .button.primary {
+    background: var(--gold);
+    color: #1c1712;
+  }
+
+  .button.primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .button.secondary {
+    border: 1px solid rgba(255,255,255,.45);
+    color: white;
+  }
+
+  .button.secondary:hover {
+    background: white;
+    color: var(--dark);
+  }
+
+  .hero-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    font-size: 13px;
+  }
+
+  .stars {
+    color: var(--gold);
+    letter-spacing: 3px;
+  }
+
+  .hero-rating span {
+    color: #aaa29a;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 35px;
+    right: 45px;
+    z-index: 2;
+    color: #aaa29a;
+    font-size: 8px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-scroll i {
+    width: 35px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* GENERAL */
+
+  .section {
+    width: min(1200px, 100%);
+    margin: auto;
+    padding: 105px 28px;
+  }
+
+  h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  h2 span {
+    color: var(--brown2);
+  }
+
+  /* ABOUT */
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    margin-top: 45px;
+  }
+
+  .about-text {
+    padding-top: 8px;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 45px;
+    margin-top: 38px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+  }
+
+  .stats strong {
+    display: block;
+    font-family: "Playfair Display", serif;
+    color: var(--brown);
+    font-size: 29px;
+  }
+
+  .stats span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* MENU */
+
+  .menu-section {
+    background: var(--cream);
+    max-width: none;
+    padding-left: max(28px, calc((100vw - 1144px) / 2));
+    padding-right: max(28px, calc((100vw - 1144px) / 2));
+  }
+
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 50px;
+  }
+
+  .section-heading p {
+    max-width: 350px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 50px;
+  }
+
+  .menu-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 25px;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: .25s;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-5px);
+    border-color: #cdbda8;
+  }
+
+  .menu-number {
+    color: #c9c0b6;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .menu-info {
+    margin-top: 28px;
+  }
+
+  .menu-tag {
+    color: var(--gold);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .menu-info h3 {
+    margin-top: 7px;
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+  }
+
+  .menu-info p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .menu-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 20px;
+  }
+
+  .menu-bottom strong {
+    color: var(--brown);
+    font-size: 15px;
+  }
+
+  .menu-bottom a {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--brown);
+  }
+
+  .menu-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    color: #8a8178;
+    font-size: 10px;
+  }
+
+  /* FEATURE */
+
+  .feature {
+    min-height: 550px;
+    padding: 100px 28px;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(rgba(63,37,23,.88), rgba(63,37,23,.88)),
+      url("https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1800&q=85")
+      center/cover;
+    color: white;
+  }
+
+  .feature-content {
+    width: min(850px, 100%);
+    margin: auto;
+    text-align: center;
+  }
+
+  .light {
+    color: #d9b77f;
+  }
+
+  .feature h2 {
+    margin-top: 18px;
+    font-size: clamp(42px, 6vw, 70px);
+  }
+
+  .feature p {
+    max-width: 520px;
+    margin: 25px auto;
+    color: #e0d4c9;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  .light-button {
+    background: white;
+    color: var(--brown);
+  }
+
+  /* WHY */
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    margin-top: 45px;
+    border: 1px solid var(--line);
+  }
+
+  .why-card {
+    background: var(--paper);
+    padding: 35px 27px;
+  }
+
+  .why-card > span {
+    color: var(--gold);
+    font-size: 10px;
+  }
+
+  .why-card h3 {
+    margin-top: 45px;
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+  }
+
+  .why-card p {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  /* GALLERY */
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 45px;
+  }
+
+  .gallery-item {
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+    background: #ddd;
+  }
+
+  .gallery-item.large {
+    height: 420px;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .gallery-item div {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    text-shadow: 0 2px 10px black;
+  }
+
+  /* LOCATION */
+
+  .location {
+    padding-top: 40px;
+  }
+
+  .location-box {
+    background: var(--dark);
+    color: white;
+    padding: 70px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 70px;
+    align-items: center;
+  }
+
+  .location-box h2 {
+    margin-top: 18px;
+  }
+
+  .location-box p {
+    max-width: 520px;
+    margin-top: 25px;
+    color: #aaa29a;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .location-info {
+    display: flex;
+    gap: 50px;
+    margin-top: 35px;
+  }
+
+  .location-info span {
+    display: block;
+    color: #77706a;
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .location-info strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  .location-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  .outline {
+    border: 1px solid #55504b;
+    color: white;
+  }
+
+  .map-card {
+    min-height: 310px;
+    background:
+      linear-gradient(rgba(65,48,36,.86), rgba(65,48,36,.86)),
+      url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .map-icon {
+    width: 58px;
+    height: 58px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    font-size: 27px;
+    margin-bottom: 25px;
+  }
+
+  .map-card span {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .map-card strong {
+    margin-top: 8px;
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+  }
+
+  .map-card small {
+    margin-top: 5px;
+    color: #c7bdb3;
+    font-size: 10px;
+  }
+
+  .map-card a {
+    margin-top: 25px;
+    color: white;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+    font-size: 11px;
+  }
+
+  /* CTA */
+
+  .final-cta {
+    padding: 120px 28px;
+    text-align: center;
+    background: var(--cream);
+  }
+
+  .final-cta h2 {
+    margin-top: 18px;
+    font-size: clamp(48px, 7vw, 78px);
+  }
+
+  .final-cta h2 em {
+    color: var(--brown2);
+  }
+
+  .final-cta p {
+    max-width: 500px;
+    margin: 25px auto 30px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .whatsapp {
+    background: #1d8f58;
+    color: white;
+  }
+
+  /* FOOTER */
+
+  footer {
+    background: #11100f;
+    color: white;
+    padding: 50px max(28px, calc((100vw - 1144px) / 2)) 25px;
+  }
+
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 25px;
+  }
+
+  .footer-links a,
+  .footer-wa {
+    color: #aaa29a;
+    font-size: 11px;
+  }
+
+  .footer-links a:hover,
+  .footer-wa:hover {
+    color: var(--gold);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #292725;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #625e59;
+    font-size: 9px;
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 800px) {
+    nav {
+      display: none;
+    }
+
+    .nav-inner {
+      padding: 14px 18px;
+    }
+
+    .nav-button {
+      padding: 9px 12px;
+      font-size: 10px;
+    }
+
+    .hero {
+      min-height: 700px;
+    }
+
+    .hero-content {
+      padding: 130px 20px 80px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      letter-spacing: -2px;
+    }
+
+    .section {
+      padding: 75px 20px;
+    }
+
+    .about-grid,
+    .location-box {
+      grid-template-columns: 1fr;
+      gap: 45px;
+    }
+
+    .section-heading {
+      display: block;
+    }
+
+    .section-heading p {
+      margin-top: 20px;
+    }
+
+    .menu-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .why-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-item.large {
+      grid-column: 1 / -1;
+      height: 330px;
+    }
+
+    .location-box {
+      padding: 40px 25px;
+    }
+
+    .location-info {
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .footer-main {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .brand strong {
+      font-size: 18px;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero-rating {
+      margin-top: 30px;
+    }
+
+    .menu-grid,
+    .why-grid,
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-item,
+    .gallery-item.large {
+      height: 300px;
+      grid-column: auto;
+    }
+
+    .stats {
+      gap: 25px;
+    }
+
+    .location-actions {
+      flex-direction: column;
+    }
+
+    .footer-main,
+    .footer-bottom {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      min-height: 500px;
+      padding: 80px 20px;
+    }
+  }
+</style>
